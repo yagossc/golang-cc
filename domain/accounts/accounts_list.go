@@ -11,21 +11,20 @@ type AccountListRepository interface {
 	List() ([]entities.AccountEntity, error)
 }
 
-// AccoutListUC defines the list
-// method access for this use case.
+// AccoutListUC holds the repository access
+// interface and the actual accounts list method.
 type AccountListUC struct {
 	accountListRepository AccountListRepository
 }
 
-// NewAccountListUC returns a concrete Account List use case.
+// NewAccountListUC returns a concrete account list use case.
 func NewAccountListUC(accountListRepository AccountListRepository) AccountListUC {
 	return AccountListUC{
 		accountListRepository: accountListRepository,
 	}
 }
 
-// ListAccounts implements the use case
-// interface method 'ListAccounts()'.
+// ListAccounts implements the list accounts use case.
 func (uc AccountListUC) ListAccounts() ([]entities.AccountEntity, error) {
 	accs, err := uc.accountListRepository.List()
 	if err != nil {

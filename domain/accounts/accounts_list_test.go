@@ -83,8 +83,6 @@ func TestListAccounts(t *testing.T) {
 			t.Errorf("CASE %d: expected nothing, but got %s", i, err.Error())
 		}
 
-		// TODO: the Account's struct fields are not exported, they can be accessed
-		// through each of the methods
 		if ok := assert.ElementsMatch(t, accounts, tc.expectedAccounts); !ok {
 			t.Errorf("CASE %d: expected %v, but got %v", i, tc.expectedAccounts, accounts)
 		}
